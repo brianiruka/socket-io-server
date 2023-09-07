@@ -5,6 +5,7 @@ const cors = require("cors"); // Import the cors middleware
 
 const app = express();
 const server = http.createServer(app);
+const PORT = process.env.PORT || 3000;
 const io = socketIo(server, {
     cors: {
         origin: "*",
@@ -81,6 +82,6 @@ io.on("connection", (socket) => {
     // Handle other events and logic as needed
 });
 
-server.listen(3000, () => {
-    console.log("Server is running on port 3000");
+server.listen(PORT, () => {
+    console.log(`server started on port ${PORT}`);
 });
